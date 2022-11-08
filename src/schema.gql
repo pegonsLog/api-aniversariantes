@@ -1,0 +1,31 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Aniversariante {
+  birthday: String!
+  id: ID!
+  name: String!
+}
+
+input CreateAniversarianteInput {
+  birthday: String!
+  name: String!
+}
+
+type Mutation {
+  createAniversariante(createAniversarianteInput: CreateAniversarianteInput!): Aniversariante!
+  removeAniversariante(id: Int!): Aniversariante!
+  updateAniversariante(updateAniversarianteInput: UpdateAniversarianteInput!): Aniversariante!
+}
+
+type Query {
+  aniversariante(id: Int!): Aniversariante!
+  aniversariantes: [Aniversariante!]!
+}
+
+input UpdateAniversarianteInput {
+  birthday: String
+  id: Int!
+  name: String
+}
