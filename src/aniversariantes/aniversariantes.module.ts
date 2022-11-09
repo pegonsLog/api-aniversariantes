@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
 import { AniversariantesService } from './aniversariantes.service';
-import { AniversariantesResolver } from './aniversariantes.resolver';
+import { AniversariantesController } from './aniversariantes.controller';
 
 @Module({
-  providers: [AniversariantesResolver, AniversariantesService],
+  controllers: [AniversariantesController],
+  providers: [AniversariantesService],
 })
 export class AniversariantesModule {}

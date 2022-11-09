@@ -1,8 +1,9 @@
-import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
+import { AniversariantesGraphqlModule } from './aniversariantes-graphql/aniversariantes-graphql.module';
 import { AniversariantesModule } from './aniversariantes/aniversariantes.module';
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 
 @Module({
   imports: [
@@ -11,11 +12,13 @@ import { AniversariantesModule } from './aniversariantes/aniversariantes.module'
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       sortSchema: true,
       cors: {
-        origin: 'http://localhost:3000/graphql',
+        origin: 'http://localhost:3000',
         credentials: true,
       },
     }),
+
     AniversariantesModule,
+    AniversariantesGraphqlModule,
   ],
   controllers: [],
   providers: [],

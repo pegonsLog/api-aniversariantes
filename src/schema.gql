@@ -2,30 +2,30 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Aniversariante {
+type AniversariantesGraphql {
   birthday: String!
   id: ID!
   name: String!
 }
 
-input CreateAniversarianteInput {
-  birthday: String!
-  name: String!
+input CreateAniversariantesGraphqlInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
 }
 
 type Mutation {
-  createAniversariante(createAniversarianteInput: CreateAniversarianteInput!): Aniversariante!
-  removeAniversariante(id: Int!): Aniversariante!
-  updateAniversariante(updateAniversarianteInput: UpdateAniversarianteInput!): Aniversariante!
+  createAniversariantesGraphql(createAniversariantesGraphqlInput: CreateAniversariantesGraphqlInput!): AniversariantesGraphql!
+  removeAniversariantesGraphql(id: Int!): AniversariantesGraphql!
+  updateAniversariantesGraphql(updateAniversariantesGraphqlInput: UpdateAniversariantesGraphqlInput!): AniversariantesGraphql!
 }
 
 type Query {
-  aniversariante(id: Int!): Aniversariante!
-  aniversariantes: [Aniversariante!]!
+  aniversariantes: [AniversariantesGraphql!]!
+  aniversariantesGraphql(id: Int!): AniversariantesGraphql!
 }
 
-input UpdateAniversarianteInput {
-  birthday: String
+input UpdateAniversariantesGraphqlInput {
+  """Example field (placeholder)"""
+  exampleField: Int
   id: Int!
-  name: String
 }

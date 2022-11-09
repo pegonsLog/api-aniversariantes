@@ -1,26 +1,22 @@
-/* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
-import { CreateAniversarianteInput } from './dto/create-aniversariante.input';
-import { UpdateAniversarianteInput } from './dto/update-aniversariante.input';
+import { CreateAniversarianteDto } from './dto/create-aniversariante.dto';
+import { UpdateAniversarianteDto } from './dto/update-aniversariante.dto';
 
 @Injectable()
 export class AniversariantesService {
-  create(createAniversarianteInput: CreateAniversarianteInput) {
+  create(createAniversarianteDto: CreateAniversarianteDto) {
     return 'This action adds a new aniversariante';
   }
 
   findAll() {
-    return [
-      { id: 1, name: 'Pedro', birthday: '28/06' },
-      { id: 2, name: 'Jânio', birthday: '12/12' },
-    ];
+    return [{ id: 1, name: 'Pedro', birthday: '28/06' }];
   }
 
   findOne(id: number) {
     return `This action returns a #${id} aniversariante`;
   }
 
-  update(id: number, updateAniversarianteInput: UpdateAniversarianteInput) {
+  update(id: number, updateAniversarianteDto: UpdateAniversarianteDto) {
     return `This action updates a #${id} aniversariante`;
   }
 
