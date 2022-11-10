@@ -2,20 +2,20 @@ import { Injectable } from '@nestjs/common';
 import { CreateAniversarianteDto } from './dto/create-aniversariante.dto';
 import { UpdateAniversarianteDto } from './dto/update-aniversariante.dto';
 import { Aniversariante } from './entities/aniversariante.entity';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class AniversariantesService {
-  aniversariantes: Aniversariante[] = [
-    { id: 1, name: 'João', birthday: '28/06' },
-    { id: 2, name: 'Paulo', birthday: '10/05' },
-    { id: 3, name: 'José', birthday: '15/07' },
-  ];
+  public readonly API = './api-aniversariantes/db.sql';
+
+  constructor(private http: HttpClient) {}
+
   create(createAniversarianteDto: CreateAniversarianteDto) {
     return 'This action adds a new aniversariante';
   }
 
   findAll() {
-    return this.aniversariantes;
+    return this.http.get<Aniversariante>(this.API);
   }
 
   findOne(id: number) {

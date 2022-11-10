@@ -6,14 +6,19 @@ import {
   Patch,
   Param,
   Delete,
+  Inject,
 } from '@nestjs/common';
+import { Repository } from 'typeorm';
 import { AniversariantesService } from './aniversariantes.service';
 import { CreateAniversarianteDto } from './dto/create-aniversariante.dto';
 import { UpdateAniversarianteDto } from './dto/update-aniversariante.dto';
+import { Aniversariante } from './entities/aniversariante.entity';
 
 @Controller('aniversariantes')
 export class AniversariantesController {
   constructor(
+    @Inject('ANIVERSARIANTE_REPOSITORY')
+    private aniversarianteRepository: Repository<Aniversariante>,
     private readonly aniversariantesService: AniversariantesService,
   ) {}
 
