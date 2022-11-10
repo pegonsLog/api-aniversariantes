@@ -1,32 +1,40 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreateAniversarianteDto } from './dto/create-aniversariante.dto';
 import { UpdateAniversarianteDto } from './dto/update-aniversariante.dto';
 import { Aniversariante } from './entities/aniversariante.entity';
-import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class AniversariantesService {
-  public readonly API = './api-aniversariantes/db.sql';
-
-  constructor(private http: HttpClient) {}
+  constructor(
+    @InjectRepository(Aniversariante)
+    private aniversarianteRepository: Repository<Aniversariante>,
+  ) {}
 
   create(createAniversarianteDto: CreateAniversarianteDto) {
-    return 'This action adds a new aniversariante';
+    const aniversariante = this.aniversarianteRepository.create(
+      createAniversarianteDto,
+    );
+    return this.aniversarianteRepository.save(aniversariante);
   }
 
-  findAll() {
-    return this.http.get<Aniversariante>(this.API);
+  async findAll() {
+    return await this.aniversarianteRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} aniversariante`;
+  async findOne(id: number) {
+    return await this.aniversarianteRepository.findOneBy({ id: id });
   }
 
-  update(id: number, updateAniversarianteDto: UpdateAniversarianteDto) {
-    return `This action updates a #${id} aniversariante`;
+  async update(id: number, updateAniversarianteDto: UpdateAniversarianteDto) {
+    return await this.aniversarianteRepository.update(
+      id,
+      updateAniversarianteDto,
+    );
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} aniversariante`;
+  async remove(id: number) {
+    return await this.aniversarianteRepository.delete(id);
   }
 }

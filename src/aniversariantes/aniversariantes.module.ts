@@ -1,17 +1,12 @@
 import { Module } from '@nestjs/common';
-import { AniversariantesService } from './aniversariantes.service';
-import { AniversariantesController } from './aniversariantes.controller';
-import { Aniversariante } from './entities/aniversariante.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { aniversariantesProviders } from './aniversariantes.providers';
+import { AniversariantesController } from './aniversariantes.controller';
+import { AniversariantesService } from './aniversariantes.service';
+import { Aniversariante } from './entities/aniversariante.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Aniversariante])],
   controllers: [AniversariantesController],
-  providers: [
-    AniversariantesService,
-    ...aniversariantesProviders,
-    AniversariantesService,
-  ],
+  providers: [AniversariantesService],
 })
 export class AniversariantesModule {}
