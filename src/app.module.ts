@@ -1,17 +1,17 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AniversariantesModule } from './aniversariantes/aniversariantes.module';
-import { Aniversariante } from './aniversariantes/entities/aniversariante.entity';
+import { BirthdaysModule } from './birthdays/birthdays.module';
+import { Birthday } from './birthdays/entities/birthday.entity';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       database: './db.sql',
       type: 'sqlite',
-      entities: [Aniversariante],
+      entities: [Birthday],
       synchronize: true,
     }),
-    AniversariantesModule,
+    BirthdaysModule,
   ],
   controllers: [],
   providers: [],
