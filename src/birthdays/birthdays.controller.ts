@@ -26,20 +26,20 @@ export class BirthdaysController {
     return this.birthdaysService.findAll();
   }
 
-  @Get(':id')
+  @Get('/:id')
   findOne(@Param('id') id: string) {
     return this.birthdaysService.findOne(+id);
   }
 
-  @Patch('/:id')
+  @Patch(':id')
   update(
-    @Param('id') id: string,
+    @Param('/:id') id: string,
     @Body() updateBirthdayDto: UpdateBirthdayDto,
   ) {
     return this.birthdaysService.update(+id, updateBirthdayDto);
   }
 
-  @Delete(':id')
+  @Delete('/:id')
   remove(@Param('id') id: string) {
     return this.birthdaysService.remove(+id);
   }
