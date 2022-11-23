@@ -13,9 +13,9 @@ export class BirthdaysService {
     private birthdayRepository: Repository<Birthday>,
   ) {}
 
-  create(createBirthdayDto: CreateBirthdayDto) {
+  async create(createBirthdayDto: CreateBirthdayDto) {
     const birthday = this.birthdayRepository.create(createBirthdayDto);
-    return this.birthdayRepository.save(birthday);
+    return await this.birthdayRepository.save(birthday);
   }
 
   async findAll() {

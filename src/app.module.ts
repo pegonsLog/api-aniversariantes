@@ -10,7 +10,6 @@ import { Birthday } from './birthdays/entities/birthday.entity';
       type: 'sqlite',
       entities: [Birthday],
       synchronize: true,
-      logging: true
     }),
     BirthdaysModule,
   ],
