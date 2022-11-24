@@ -11,7 +11,12 @@ export class Birthday {
   name: string;
 
   @Column({
-    length: 15,
+    length: 2,
   })
-  birthday: string;
+  day: string;
+
+  @Column({
+    length: 3,
+  })
+  month: string;
 }

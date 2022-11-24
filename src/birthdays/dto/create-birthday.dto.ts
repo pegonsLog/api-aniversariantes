@@ -1,4 +1,5 @@
 export class CreateBirthdayDto {
   name: string;
-  birthday: string;
+  day: string;
+  month: string;
 }
