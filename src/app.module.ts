@@ -12,7 +12,6 @@ import { UsersModule } from './users/users.module';
       type: 'sqlite',
       entities: [Birthday, User],
       synchronize: true,
-      logging: true,
     }),
     BirthdaysModule,
     UsersModule,
