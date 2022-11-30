@@ -22,8 +22,8 @@ export class BirthdaysService {
     return await this.birthdayRepository.find();
   }
 
-  async findForMonth(month: string) {
-    return await this.birthdayRepository.find(month);
+  async findForMonth(month: any) {
+    return await this.birthdayRepository.findBy(month);
   }
   async findOne(id: number) {
     return await this.birthdayRepository.findOneBy({ id: id });

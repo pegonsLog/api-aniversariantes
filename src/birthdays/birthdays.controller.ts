@@ -18,7 +18,6 @@ export class BirthdaysController {
 
   @Post()
   create(@Body() createBirthdayDto: CreateBirthdayDto) {
-    //console.log(createBirthdayDto);
     return this.birthdaysService.create(createBirthdayDto);
   }
 
