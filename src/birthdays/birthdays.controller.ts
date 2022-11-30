@@ -27,6 +27,11 @@ export class BirthdaysController {
     return this.birthdaysService.findAll();
   }
 
+  @Get('/:month')
+  findForMonth(@Param('month') month: string) {
+    return this.birthdaysService.findForMonth(month);
+  }
+
   @Get('/:id')
   findOne(@Param('id') id: string) {
     return this.birthdaysService.findOne(+id);
