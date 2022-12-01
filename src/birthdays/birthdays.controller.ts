@@ -11,9 +11,11 @@ import { BirthdaysService } from './birthdays.service';
 import { CreateBirthdayDto } from './dto/create-birthday.dto';
 
 import { UpdateBirthdayDto } from './dto/update-birthday.dto';
+import { Birthday } from './entities/birthday.entity';
 
 @Controller('birthdays')
 export class BirthdaysController {
+  birthdayPersons: Birthday[] = [];
   constructor(private readonly birthdaysService: BirthdaysService) {}
 
   @Post()
@@ -26,9 +28,11 @@ export class BirthdaysController {
     return this.birthdaysService.findAll();
   }
 
-  @Get('/:month')
-  findForMonth(@Param('month') month: string) {
-    return this.birthdaysService.findForMonth(month);
+  @Get('/month/:month')
+  async findForMonth(@Param('month') month: string) {
+    return await this.birthdaysService
+      .findForMonth(month)
+      .then((birthdays) => (this.birthdayPersons = birthdays));
   }
 
   @Get('/:id')
