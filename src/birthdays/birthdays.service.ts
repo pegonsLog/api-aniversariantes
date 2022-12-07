@@ -26,9 +26,7 @@ export class BirthdaysService {
   }
 
   async findForMonth(month: string) {
-    await this.birthdayRepository
-      .find()
-      .then((birthdays) => (this.birthdayPersons = birthdays));
+    this.findAll().then((list) => (this.birthdayPersons = list));
 
     for (const birthday of this.birthdayPersons) {
       if (birthday.month == month) {

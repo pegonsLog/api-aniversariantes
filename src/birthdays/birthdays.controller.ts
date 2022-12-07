@@ -28,7 +28,7 @@ export class BirthdaysController {
     return this.birthdaysService.findAll();
   }
 
-  @Get('/month/:month')
+  @Get('/:month')
   async findForMonth(@Param('month') month: string) {
     return await this.birthdaysService
       .findForMonth(month)
