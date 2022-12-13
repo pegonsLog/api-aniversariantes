@@ -9,7 +9,7 @@ import { Birthday } from './entities/birthday.entity';
 @Injectable()
 export class BirthdaysService {
   birthdayPersons: Birthday[] = [];
-  birthdaysMonth: Birthday[] = [];
+  birthdayMonth: Birthday[] = [];
 
   constructor(
     @InjectRepository(Birthday)
@@ -26,14 +26,15 @@ export class BirthdaysService {
   }
 
   async findForMonth(month: string) {
+    this.birthdayMonth = [];
     this.findAll().then((list) => (this.birthdayPersons = list));
 
     for (const birthday of this.birthdayPersons) {
       if (birthday.month == month) {
-        this.birthdaysMonth.push(birthday);
+        this.birthdayMonth.push(birthday);
       }
     }
-    return this.birthdaysMonth;
+    return this.birthdayMonth;
   }
   async findOne(id: number) {
     return await this.birthdayRepository.findOneBy({ id: id });
