@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -25,17 +26,17 @@ export class BirthdaysService {
     return await this.birthdayRepository.find();
   }
 
-  async findForMonth(month: string) {
-    this.birthdayMonth = [];
-    this.findAll().then((list) => (this.birthdayPersons = list));
+  // async findForMonth(month: string) {
+  //   this.birthdayPersons = [];
+  //   this.birthdayMonth = await this.birthdayRepository.find();
 
-    for (const birthday of this.birthdayPersons) {
-      if (birthday.month == month) {
-        this.birthdayMonth.push(birthday);
-      }
-    }
-    return this.birthdayMonth;
-  }
+  //   for (let birthday of this.birthdayMonth) {
+  //     if (birthday.month === month) {
+  //       this.birthdayPersons.push(birthday);
+  //     }
+  //   }
+  //   return this.birthdayPersons;
+  // }
   async findOne(id: number) {
     return await this.birthdayRepository.findOneBy({ id: id });
   }
